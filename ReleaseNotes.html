@@ -3,9 +3,10 @@
 
 <head>
   <title>Hex Fiend Release Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: Helvetica, ArialMT, Arial, sans-serif;
+      font-family: sans-serif;
     }
   </style>
 </head>
@@ -13,6 +14,53 @@
 <body>
 
   <h2>Hex Fiend Release Notes</h2>
+
+  <h3>v2.17</h3>
+  <ul>
+    <li>macOS 10.14.6 is now required due to introducing Swift into the codebase.</li>
+    <li>Templates now can have <a href="https://github.com/HexFiend/HexFiend/blob/master/templates/Reference.md#metadata">metadata</a> in their header comment block, which powers these new features:</li>
+    <ul>
+      <li>Auto-detection. Templates can store file type information (UTI, extension) which is used to choose the template. Note that most builtin templates don't yet have this information set.</li>
+      <li>Hide templates. If a template file isn't actually a template, such as a utilities file, it can have metadata set to hide it.</li>
+      <li>Minimum version. Metadata can include the minimum version to exclude showing a template in the list if the app version is lower.</li>
+    </ul>
+    <li><a href="https://github.com/HexFiend/HexFiend/blob/master/docs/ByteThemes.md">Byte themes</a> have been added, accessible from the Views menu.</li>
+    <li>Templates reload automatically when the templates directory is modified (thanks @tbartelmess)</li>
+    <li>Text encodings menu can now be customized</li>
+    <li>Add setting "Match inactive text selection color with active" to help with selection color in dark mode</li>
+    <li>Fixed rendering issues with Sonoma (thanks @zorgiepoo).</li>
+    <li>Fix <code>include</code> command not working for builtin templates</li>
+    <li>Add error handling to section commands</li>
+    <li>Better error message when the <code>requires</code> command fails</li>
+    <li>Added <code>uleb128</code> and <code>sleb128</code> commands</li>
+    <li>Custom bytes grouping values are now capped and validated to prevent crashing</li>
+    <li>Anti-alias option has been removed</li>
+  </ul>
+
+  <h3>v2.16</h3>
+  <ul>
+    <li>Community templates are now embedded in the app and can be selected from the Templates dropdown.</li>
+    <li>Fixed endian for 2-byte unsigned int not working</li>
+    <li>Fixed nested collapsed sections not collapsing</li>
+  </ul>
+
+  <h3>v2.15</h3>
+  <ul>
+    <li>Add <code>sectioncollapse</code> command and <code>-collapsed</code> option to <code>section</code> command (thanks @ahelsley)</li>
+    <li>Fix a crash on Apple Silicon (thanks @mredig)</li>
+    <li>Left-align template errors and use a fixed width font (thanks @tbartelmess)</li>
+    <li>Add <code>sectionname</code> command (thanks @fosterbrereton)</li>
+    <li>Support symbolic links in the templates directory (thanks @fosterbrereton)</li>
+    <li>Add <code>include</code> command (thanks @fosterbrereton)</li>
+    <li>Add Data Inspector support for all integers sizes from 1 through 16 bytes (thanks @fosterbrereton)</li>
+    <li>Add <code>hf_min_version_required</code> command (thanks @fosterbrereton)</li>
+  </ul>
+
+  <h3>v2.14.1</h3>
+  <ul>
+    <li>Added a new icon to match the Big Sur style (thanks @Forrest-J)</li>
+    <li>Fixed "Open Drive" not working</li>
+  </ul>
 
   <h3>v2.14</h3>
   <ul>
