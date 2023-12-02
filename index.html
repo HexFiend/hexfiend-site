@@ -10,9 +10,10 @@
 }
 td.right    { text-align: right; padding-right: 35px; padding-top: 25px; padding-bottom: 5px; width:40%; vertical-align: top; }
 td.left     { text-align: left; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; width:60%}
-li          { margin-bottom: 4px; color: #453c3c; font: 15px Helvetica, ArialMT, Arial, sans-serif; }
-li.wide     { margin-bottom: 10px }
-li.tabhack  { margin: 0px }
+li { color: #453c3c; font: 15px Helvetica, ArialMT, Arial, sans-serif };
+.info li          { margin-bottom: 4px; }
+.info li.wide     { margin-bottom: 10px }
+.info li.tabhack  { margin: 0px }
 ul.tabhack	{ margin: 0 15px 0px 0; }
 a {
 	font-weight: bold;
@@ -38,11 +39,64 @@ img {
     font: 17px Helvetica, ArialMT, Arial, sans-serif;
     font-weight: bold;
 }
+.author {
+    margin-top: 5px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    padding-bottom: 20px;
+}
+.col-left {
+    flex-basis: 25%;
+    text-align: right;
+}
+.col-right {
+    flex-basis: 44%;
+}
+.col-right ul {
+    padding: 0;
+    margin-top: 0;
+}
+.col-right li {
+    padding-bottom: 10px
+}
+.logo-text {
+    padding-top: 40px;
+}
+.download-icon-text-flex {
+    display: flex;
+    gap: 10px;
+}
+.download a {
+    text-decoration: none;
+    font-weight: normal;
+    /*padding-top: 7px;*/
+    color: #666;
+    font-size: 11pt;
+    font-family: Menlo, Monaco, 'Courier New', Courier, monospace;
+    letter-spacing: -0.1em;
+}
+.download-text-columns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+.screenshots-flex {
+    display: flex;
+    gap: 25px;
+}
+.screenshots-last-row {
+    padding-top: 25px;
+}
 @media (prefers-color-scheme: dark) {
   * {
     background-color: Canvas;
   }
-  a, a:visited, li, .subtitle {
+  a, a:visited, li, .subtitle, .download a {
     color: #e6e6e6;
   }
   #screenshots img {
@@ -54,76 +108,118 @@ img {
     <title>Hex Fiend, a fast and clever hex editor for macOS</title>
 </head>
 <body>
-    <table border="0" width="100%">
-        <tr>
-            <td class="right"><img src="images/hex_icon.png" srcset="images/hex_icon2x.png 2x" width="215" height="215" style="position:relative; left: 45px" alt="Hex Fiend logo" /></td>
-            <td class="left">
-                <div style="position: relative; top: 10px; margin-left: 40px">
-                    <picture>
-                        <source srcset="images/shapeimage_1_dark.png" media="(prefers-color-scheme: dark)">
-                        <img src="images/shapeimage_1.png" alt="Hex Fiend" width="270" height="36" /><br />
-                    </picture>
-                    <picture>
-                        <source srcset="images/shapeimage_2_dark.png" media="(prefers-color-scheme: dark)">
-                        <img src="images/shapeimage_2.png" style="margin-top: 5px;" alt="by ridiculous_fish" width="144" height="15" /><br />
-                    </picture>
-                    <br />
-                    <span class="subtitle">A fast and clever open source hex editor<br />
-                    for macOS.</span>
+    <div class="row">
+        <div class="col-left">
+            <img src="images/hex_icon.png" srcset="images/hex_icon2x.png 2x" width="215" height="215" alt="Hex Fiend logo">
+        </div>
+        <div class="col-right logo-text">
+            <picture>
+                <source srcset="images/shapeimage_1_dark.png" media="(prefers-color-scheme: dark)">
+                <img src="images/shapeimage_1.png" alt="Hex Fiend" width="270" height="36" /><br />
+            </picture>
+            <picture>
+                <source srcset="images/shapeimage_2_dark.png" media="(prefers-color-scheme: dark)">
+                <img class="author" src="images/shapeimage_2.png" alt="by ridiculous_fish" width="144" height="15" /><br />
+            </picture>
+            <br />
+            <span class="subtitle">A fast and clever open source hex editor<br>for macOS.</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-left">
+            <picture>
+                <source srcset="images/shapeimage_3_dark.png" media="(prefers-color-scheme: dark)">
+                <img src="images/shapeimage_3.png" alt="Features" />
+            </picture>
+        </div>
+        <div class="col-right">
+            <ul>
+                <li class="wide"><strong>Insert, delete, rearrange.</strong>&nbsp;&nbsp;Hex Fiend does not limit you to in-place changes like some hex editors.</li>
+                <li class="wide"><strong>Work with huge files.</strong>&nbsp;&nbsp;Hex Fiend can handle as big a file as you’re able to create.</li>
+                <li class="wide"><strong>Small footprint.</strong>&nbsp;&nbsp;Hex Fiend launches instantly even with huge files. It does not need to keep your files in memory.</li>
+                <li class="wide"><strong>Fast.</strong>&nbsp;&nbsp;Open a huge file, scroll around, copy and paste, all instantly.  Find what you’re looking for with fast searching.</li>
+                <li class="wide"><strong>Binary diff.</strong>&nbsp;&nbsp;Hex Fiend can show the differences between files, taking into account insertions or deletions.</li>
+                <li class="wide"><strong>Smart saving.</strong>&nbsp;&nbsp;Hex Fiend knows not to waste time overwriting the parts of your files that haven’t changed.</li>
+                <li class="wide"><strong>Data inspector.</strong>&nbsp;&nbsp;Interpret data as integer or floating point, signed or unsigned, big or little endian...</li>
+                <li class="wide"><strong>Embeddable!</strong>&nbsp;&nbsp;It’s really easy to incorporate Hex Fiend’s hex or data views into your app.  Its permissive BSD-style license won’t burden you.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-left">
+            <a href="https://github.com/HexFiend/HexFiend/releases/download/v2.17.1/Hex_Fiend_2.17.1.dmg">
+                <picture>
+                    <source srcset="images/shapeimage_5_dark.png" media="(prefers-color-scheme: dark)"> 
+                    <img src="images/shapeimage_5.png" alt="Download" />
+                </picture>
+            </a>
+        </div>
+        <div class="col-right download">
+            <a href="https://github.com/HexFiend/HexFiend/releases/download/v2.17.1/Hex_Fiend_2.17.1.dmg">
+                <div class="download-icon-text-flex">
+                    <div>
+                        <img src="images/download_square.png" alt="Download Link" width=112 height=112>
+                    </div>
+                    <div class="download-text-columns">
+                        <div>
+                            Hex Fiend 2.17.1
+                        </div>
+                        <div>
+                            macOS 10.14.6+
+                        </div>
+                    </div>
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="right">
-                <picture>
-                    <source srcset="images/shapeimage_3_dark.png" media="(prefers-color-scheme: dark)">
-                    <img src="images/shapeimage_3.png" alt="Features" />
-                </picture>
-            </td>
-            <td class="left">
-                <ul style="width: 70%">
-                    <li class="wide"><strong>Insert, delete, rearrange.</strong>&nbsp;&nbsp;Hex Fiend does not limit you to in-place changes like some hex editors.</li>
-                    <li class="wide"><strong>Work with huge files.</strong>&nbsp;&nbsp;Hex Fiend can handle as big a file as you’re able to create.</li>
-                    <li class="wide"><strong>Small footprint.</strong>&nbsp;&nbsp;Hex Fiend launches instantly even with huge files. It does not need to keep your files in memory.</li>
-                    <li class="wide"><strong>Fast.</strong>&nbsp;&nbsp;Open a huge file, scroll around, copy and paste, all instantly.  Find what you’re looking for with fast searching.</li>
-					<li class="wide"><strong>Binary diff.</strong>&nbsp;&nbsp;Hex Fiend can show the differences between files, taking into account insertions or deletions.</li>
-                    <li class="wide"><strong>Smart saving.</strong>&nbsp;&nbsp;Hex Fiend knows not to waste time overwriting the parts of your files that haven’t changed.</li>
-                    <li class="wide"><strong>Data inspector.</strong>&nbsp;&nbsp;Interpret data as integer or floating point, signed or unsigned, big or little endian...</li>
-                    <li class="wide"><strong>Embeddable!</strong>&nbsp;&nbsp;It’s really easy to incorporate Hex Fiend’s hex or data views into your app.  Its permissive BSD-style license won’t burden you.</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td class="right" style="padding-top: 20px" >
-                <a href="https://github.com/HexFiend/HexFiend/releases/download/v2.17.1/Hex_Fiend_2.17.1.dmg">
-                    <picture>
-                        <source srcset="images/shapeimage_5_dark.png" media="(prefers-color-scheme: dark)"> 
-                        <img src="images/shapeimage_5.png" alt="Download" />
-                    </picture>
-                </a>
-            </td>
-            <td class="left" style="vertical-align: middle"><a href="https://github.com/HexFiend/HexFiend/releases/download/v2.17.1/Hex_Fiend_2.17.1.dmg" style="text-decoration:none; font-weight: normal"><img src="images/download_square.png" alt="Download Link" style="float: left; margin-left: 15px; margin-top: -10px;" width=112 height=112 /><p style="padding-top: 7px; color: #666; font-size: 11pt; font-family:Menlo, Monaco, 'Courier New', Courier, monospace; letter-spacing: -0.1em;">Hex Fiend 2.17.1<br><br>macOS 10.14.6+</a></td>
-        </tr>
-        <tr>
-            <td class="right">
-                <picture>
-                    <source srcset="images/shapeimage_4_dark.png" media="(prefers-color-scheme: dark)">
-                    <img src="images/shapeimage_4.png" alt="Screenshots" />
-                </picture>
-            </td>
-            <td class="left" id="screenshots">
-                <table border="0" cellspacing="20">
-                    <tr>
-                        <td><a href="screenshots/Screenshot_1.html"><img src="screenshots/thumb1.png" width="195" height="122" /></a></td>
-                        <td><a href="screenshots/Screenshot_2.html"><img src="screenshots/thumb2.png" width="195" height="122" /></a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="screenshots/Screenshot_3.html"><img src="screenshots/thumb3.png" width="195" height="122" /></a></td>
-                        <td><a href="screenshots/Screenshot_4.html"><img src="screenshots/thumb4.png" width="195" height="122" /></a></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-left">
+            <picture>
+                <source srcset="images/shapeimage_4_dark.png" media="(prefers-color-scheme: dark)">
+                <img src="images/shapeimage_4.png" alt="Screenshots" />
+            </picture>
+        </div>
+        <div class="col-right">
+            <div class="screenshots-flex">
+                <div class="screenshots-row">
+                    <a href="screenshots/Screenshot_1.html"><img src="screenshots/thumb1.png" width="195" height="122"></a>
+                </div>
+                <div class="screenshots-row">
+                    <a href="screenshots/Screenshot_2.html"><img src="screenshots/thumb2.png" width="195" height="122"></a>
+                </div>
+            </div>
+            <div class="screenshots-flex screenshots-last-row">
+                <div class="screenshots-row">
+                    <a href="screenshots/Screenshot_3.html"><img src="screenshots/thumb3.png" width="195" height="122"></a>
+                </div>
+                <div class="screenshots-row">
+                    <a href="screenshots/Screenshot_4.html"><img src="screenshots/thumb4.png" width="195" height="122"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-left">
+            <picture>
+                <source srcset="images/shapeimage_9_dark.png" media="(prefers-color-scheme: dark)"> 
+                <img src="images/shapeimage_9.png" alt="Source Code" style="position: relative; bottom: 10px;" />
+            </picture>
+        </div>
+        <div class="col-right">
+            <table>
+                <tr>
+                    <td style="text-align: left; padding-bottom: 6px;"><ul class="tabhack"><li class="tabhack"><b>GitHub:</b></li></ul></td>
+                    <td style="padding-bottom: 6px;"><a href="https://github.com/HexFiend/HexFiend">https://github.com/HexFiend/HexFiend</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; padding-bottom: 6px;"><ul class="tabhack"><li class="tabhack"><b>License:</b></li></ul></td>
+                    <td style="padding-bottom: 6px;"><a href="https://github.com/HexFiend/HexFiend/blob/master/License.txt">Two-clause BSD License</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <table border="0" width="100%">
         <tr>
             <td class="right" style="padding-top: 20px" >
                 <picture>
