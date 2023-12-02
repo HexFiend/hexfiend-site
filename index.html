@@ -5,6 +5,9 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /*<![CDATA[*/
+:root {
+  color-scheme: light dark;
+}
 td.right    { text-align: right; padding-right: 35px; padding-top: 25px; padding-bottom: 5px; width:40%; vertical-align: top; }
 td.left     { text-align: left; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; width:60%}
 li          { margin-bottom: 4px; color: #453c3c; font: 15px Helvetica, ArialMT, Arial, sans-serif; }
@@ -30,6 +33,22 @@ img {
 #screenshots img {
 	border: 1px dashed #2b2b2b;
 }
+.subtitle {
+    color: #453c3c;
+    font: 17px Helvetica, ArialMT, Arial, sans-serif;
+    font-weight: bold;
+}
+@media (prefers-color-scheme: dark) {
+  * {
+    background-color: Canvas;
+  }
+  a, a:visited, li, .subtitle {
+    color: #e6e6e6;
+  }
+  #screenshots img {
+    border-color: #e6e6e6;
+  }
+}
 /*]]>*/
 </style>
     <title>Hex Fiend, a fast and clever hex editor for macOS</title>
@@ -40,16 +59,27 @@ img {
             <td class="right"><img src="images/hex_icon.png" srcset="images/hex_icon2x.png 2x" width="215" height="215" style="position:relative; left: 45px" alt="Hex Fiend logo" /></td>
             <td class="left">
                 <div style="position: relative; top: 10px; margin-left: 40px">
-                    <img src="images/shapeimage_1.png" alt="Hex Fiend" width="270" height="36" /><br />
-                    <img src="images/shapeimage_2.png" style="margin-top: 5px;" alt="by ridiculous_fish" width="144" height="15" /><br />
+                    <picture>
+                        <source srcset="images/shapeimage_1_dark.png" media="(prefers-color-scheme: dark)">
+                        <img src="images/shapeimage_1.png" alt="Hex Fiend" width="270" height="36" /><br />
+                    </picture>
+                    <picture>
+                        <source srcset="images/shapeimage_2_dark.png" media="(prefers-color-scheme: dark)">
+                        <img src="images/shapeimage_2.png" style="margin-top: 5px;" alt="by ridiculous_fish" width="144" height="15" /><br />
+                    </picture>
                     <br />
-                    <span style="color: #453c3c; font: 17px ArialMT, Arial, Helvetica, sans-serif; font-weight: bold">A fast and clever open source hex editor<br />
+                    <span class="subtitle">A fast and clever open source hex editor<br />
                     for macOS.</span>
                 </div>
             </td>
         </tr>
         <tr>
-            <td class="right"><img src="images/shapeimage_3.png" alt="Features" /></td>
+            <td class="right">
+                <picture>
+                    <source srcset="images/shapeimage_3_dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="images/shapeimage_3.png" alt="Features" />
+                </picture>
+            </td>
             <td class="left">
                 <ul style="width: 70%">
                     <li class="wide"><strong>Insert, delete, rearrange.</strong>&nbsp;&nbsp;Hex Fiend does not limit you to in-place changes like some hex editors.</li>
@@ -64,11 +94,23 @@ img {
             </td>
         </tr>
         <tr>
-            <td class="right" style="padding-top: 20px" ><a href="https://github.com/HexFiend/HexFiend/releases/download/v2.17.1/Hex_Fiend_2.17.1.dmg"><img src="images/shapeimage_5.png" alt="Download" /></a></td>
+            <td class="right" style="padding-top: 20px" >
+                <a href="https://github.com/HexFiend/HexFiend/releases/download/v2.17.1/Hex_Fiend_2.17.1.dmg">
+                    <picture>
+                        <source srcset="images/shapeimage_5_dark.png" media="(prefers-color-scheme: dark)"> 
+                        <img src="images/shapeimage_5.png" alt="Download" />
+                    </picture>
+                </a>
+            </td>
             <td class="left" style="vertical-align: middle"><a href="https://github.com/HexFiend/HexFiend/releases/download/v2.17.1/Hex_Fiend_2.17.1.dmg" style="text-decoration:none; font-weight: normal"><img src="images/download_square.png" alt="Download Link" style="float: left; margin-left: 15px; margin-top: -10px;" width=112 height=112 /><p style="padding-top: 7px; color: #666; font-size: 11pt; font-family:Menlo, Monaco, 'Courier New', Courier, monospace; letter-spacing: -0.1em;">Hex Fiend 2.17.1<br><br>macOS 10.14.6+</a></td>
         </tr>
         <tr>
-            <td class="right"><img src="images/shapeimage_4.png" alt="Screenshots" /></td>
+            <td class="right">
+                <picture>
+                    <source srcset="images/shapeimage_4_dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="images/shapeimage_4.png" alt="Screenshots" />
+                </picture>
+            </td>
             <td class="left" id="screenshots">
                 <table border="0" cellspacing="20">
                     <tr>
@@ -83,7 +125,12 @@ img {
             </td>
         </tr>
         <tr>
-            <td class="right" style="padding-top: 20px" ><img src="images/shapeimage_9.png" alt="Source Code" style="position: relative; bottom: 10px;" /></td>
+            <td class="right" style="padding-top: 20px" >
+                <picture>
+                    <source srcset="images/shapeimage_9_dark.png" media="(prefers-color-scheme: dark)"> 
+                    <img src="images/shapeimage_9.png" alt="Source Code" style="position: relative; bottom: 10px;" />
+                    </picture>
+            </td>
             <td class="left">
 				<table style="border-style: none">
 					<tr>
