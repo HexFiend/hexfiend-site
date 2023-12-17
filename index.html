@@ -92,6 +92,13 @@ img {
 .screenshots-last-row {
     padding-top: 25px;
 }
+.sourcecode-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.sourcecode-left-col {
+    flex-basis: 10%;
+}
 @media (prefers-color-scheme: dark) {
   * {
     background-color: Canvas;
@@ -202,20 +209,26 @@ img {
         <div class="col-left">
             <picture>
                 <source srcset="images/shapeimage_9_dark.png" media="(prefers-color-scheme: dark)"> 
-                <img src="images/shapeimage_9.png" alt="Source Code" style="position: relative; bottom: 10px;" />
+                <img src="images/shapeimage_9.png" alt="Source Code">
             </picture>
         </div>
         <div class="col-right">
-            <table>
-                <tr>
-                    <td style="text-align: left; padding-bottom: 6px;"><ul class="tabhack"><li class="tabhack"><b>GitHub:</b></li></ul></td>
-                    <td style="padding-bottom: 6px;"><a href="https://github.com/HexFiend/HexFiend">https://github.com/HexFiend/HexFiend</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: left; padding-bottom: 6px;"><ul class="tabhack"><li class="tabhack"><b>License:</b></li></ul></td>
-                    <td style="padding-bottom: 6px;"><a href="https://github.com/HexFiend/HexFiend/blob/master/License.txt">Two-clause BSD License</a></td>
-                </tr>
-            </table>
+            <div class="sourcecode-grid">
+                <div class="sourcecode-row sourcecode-left-col">
+                    GitHub:
+                </div>
+                <div class="sourcecode-row">
+                    <a href="https://github.com/HexFiend/HexFiend">https://github.com/HexFiend/HexFiend</a>
+                </div>
+            </div>
+            <div class="sourcecode-flex sourcecode-left-col">
+                <div class="sourcecode-row">
+                    License:
+                </div>
+                <div class="sourcecode-row">
+                    <a href="https://github.com/HexFiend/HexFiend/blob/master/License.txt">Two-clause BSD License</a>
+                </div>
+            </div>
         </div>
     </div>
 
